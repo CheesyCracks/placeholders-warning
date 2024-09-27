@@ -3,6 +3,7 @@ package com.placeholderswarning;
 import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
+import net.runelite.client.config.Notification;
 
 @ConfigGroup("placeholderswarning")
 public interface PlaceholdersWarningConfig extends Config
@@ -33,8 +34,8 @@ public interface PlaceholdersWarningConfig extends Config
 			description = "Receive a notification when opening the bank",
 			position = 3
 	)
-	default boolean notification()
+	default Notification notification()
 	{
-		return true;
+		return Notification.ON;
 	}
 }

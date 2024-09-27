@@ -40,15 +40,15 @@ public class PlaceholdersWarningPlugin extends Plugin
 	public void onConfigChanged(ConfigChanged configChanged) {
 		if (!configChanged.getGroup().equals("placeholderswarning")) return;
 		if (!configChanged.getKey().equals("blink")) return;
-		Widget button = client.getWidget(12, 38);
+		Widget button = client.getWidget(12, 40);
 		clientThread.invokeLater(() ->{if (button != null && !button.isHidden()) Objects.requireNonNull(client.getWidget(12, 39)).setHidden(false);});
 	}
 	@Subscribe
 	public void onGameTick(GameTick gameTick){
 		if (!config.blink()) return;
-		Widget button = client.getWidget(12, 38);
+		Widget button = client.getWidget(12, 40);
 		if (button == null || button.isHidden()) return;
-		Widget icon = client.getWidget(12, 39);
+		Widget icon = client.getWidget(12, 41);
 		assert icon != null;
 		if (button.getSpriteId() != 170) icon.setHidden(false);
 		else icon.setHidden(!icon.isHidden());
@@ -56,8 +56,8 @@ public class PlaceholdersWarningPlugin extends Plugin
 	@Subscribe
 	public void onWidgetLoaded(WidgetLoaded widgetLoaded) {
 		if (widgetLoaded.getGroupId() != InterfaceID.BANK) return;
-		if (Objects.requireNonNull(client.getWidget(12, 38)).getSpriteId() != 170) return;
-		if (config.notification()) notifier.notify("Always Set Placeholders is turned off!");
+		if (Objects.requireNonNull(client.getWidget(12, 40)).getSpriteId() != 170) return;
+		if (config.notification().isEnabled()) notifier.notify(config.notification(), "Always Set Placeholders is turned off!");
 		if (config.chatmessage()) client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", "<col=ff0000>Always Set Placeholders is turned off!</col>", null);
 	}
 	@Provides
