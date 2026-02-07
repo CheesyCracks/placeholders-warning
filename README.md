@@ -20,3 +20,6 @@ By default, this plugin will **flicker in your eyes** (blink the icon), **whispe
 **1.1** *(September 27, 2024)*<br/>
 - Fixed for new game version
 - Added customizable notifications
+
+**1.2** *(February 07, 2026)*<br/>
+- Fixed for new game version
